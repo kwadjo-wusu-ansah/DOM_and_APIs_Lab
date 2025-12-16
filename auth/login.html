@@ -5,27 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="../css/login.css">
   
   <title>Frontend Mentor | Note-taking web app</title>
 </head>
 <body>
 
-  Welcome to Notes
-  Please log in to continue
+  <main>
+    <section class = "page-container">
 
-  Email Address
-  email@example.com
+      <div class="logo-wrapper">
+        <img src="./assets/images/logo.svg" alt="Notes Logo">
+      </div>
 
-  Password
-  Forgot
+      <div class="text">
+        <h1>Welcome to Notes</h1>
+        <p class ="text">Please log in to continue</p>
+      </div>
 
-  Login
+      <form action="">
 
-  Or log in with:
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="email@example.com">
+        </div>
 
-  Google
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password">
+          <a href="#" class="forgot-link">Forgot</a>
+        </div>
 
-  No account yet? Sign Up
+        <button type="submit">Login</button>
+
+      </form>
+      <div class="divider">
+        <hr class="styled-line">
+        <p>Or log in with:</p>
+        <button>Google</button>
+        <hr class="styled-line">
+      </div>
+
+      <p>No account yet? <a href="#">Sign Up</a></p>
+
+
+    </section>
+  </main>
 
 </body>
 </html>
