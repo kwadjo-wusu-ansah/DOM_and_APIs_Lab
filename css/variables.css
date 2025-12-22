@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "Inter-Sans-serif";
+
+  src: local("Inter-Sans-serif"),
+    url("../assets/fonts/inter/Inter-VariableFont_opsz\,wght.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Noto-Serif";
+
+  src: local("Noto-Serif"),
+    url("../assets/fonts/noto/Noto-VariableFont_wght.ttf") 
+    format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro-MonoSpace";
+
+  src: local("SourceCodePro"),
+    url("../assets/fonts/source-code-pro/SourceCodePro-VariableFont_wght.ttf")
+      format("truetype");
+}
+
+:root {
+/*Colors*/
+  /* Neutral */
+
+  --neutral-950: #0e121b;
+  --neutral-900: #191b25;
+  --neutral-800: #232530;
+  --neutral-700: #2b303b;
+  --neutral-600: #525866;
+  --neutral-500: #717784;
+  --neutral-400: #99a0ae;
+  --neutral-300: #cacfd8;
+  --neutral-200: #e0e4ea;
+  --neutral-100: #f3f5f8;
+  --neutral-50: #f5f7fa;
+  --neutral-0: #ffffff;
+
+  /* Blue */
+
+  --blue-700: #2547d0;
+  --blue-500: #335cff;
+  --blue-50: #ebf1ff;
+
+  /* Green */
+
+  --green-500: #21c16b;
+  --green-100: #d1fbe9;
+
+  /* Red */
+
+  --red-500: #fb3748;
+  --red-100: #ffd5d8;
+
+/*Typography*/
+  /*Common Typography Presets*/
+
+  --text-preset-1-font-size: 1.5rem;
+  --text-preset-1-2-letter-spacing: -0.5px;
+  --text-preset-1-2-font-weight: 700;
+ 
+  --text-preset-2-font-size: 1.25rem;
+
+  --text-preset-3-font-size: 1rem;
+  --text-preset-3-letter-spacing: -0.3px;
+  --text-preset-3-font-weight: 600;
+  
+  --text-preset-4-5-font-size: 0.875rem;
+  --text-preset-4-5-6-letter-spacing: -0.2px;
+  --text-preset-4-font-weight: 500;
+
+  --text-preset-5-6-font-weight: 400;
+  
+  --text-preset-6-font-size: 0.75rem;
+
+
+  --text-preset-line-height-sans-serif: 1.2;
+
+  /*Sans-serif*/
+
+  --text-preset-font-family-sans-serif: "Inter-Sans-serif", sans-serif;
+
+  /*Serif*/
+
+  --text-preset-font-family-serif: "Noto-Serif", serif;
+
+  /*Monospace*/
+
+  --text-preset-font-family-mono: "SourceCodePro-MonoSpace", monospace;
+
+/*Spacing*/
+
+  --spacing-0: 0rem;
+
+  --spacing-025: 0.125rem;
+
+  --spacing-050: 0.25rem;
+
+  --spacing-075: 0.375rem;
+
+  --spacing-100: 0.5rem;
+
+  --spacing-150: 0.75rem;
+
+  --spacing-200: 1rem;
+
+  --spacing-250: 1.25rem;
+
+  --spacing-300: 1.5rem;
+
+  --spacing-400: 2rem;
+
+  --spacing-500: 2.5rem;
+
+  --spacing-600: 3rem;
+
+  --spacing-800: 4rem;
+
+  --spacing-1000: 5rem;
+
+/*Radius*/
+
+  --radius-0: 0rem;
+
+  --radius-4: 0.25rem;
+
+  --radius-6: 0.375rem;
+
+  --radius-8: 0.5rem;
+
+  --radius-10: 0.625rem;
+
+  --radius-12: 0.75rem;
+
+  --radius-16: 1rem;
+
+  --radius-20: 1.25rem;
+
+  --radius-24: 1.5rem;
+
+  --radius-full: 62rem;
+
+/*Shadows*/
+
+  --small-shadow: 0px 4px 6px 0px rgba(240,240,240,0.6);
+
+  --large-shadow: 0px 8px 12px 0px rgba(240,240,240,0.6);
+
+
+
+
+}
