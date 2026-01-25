@@ -1,0 +1,210 @@
+/* themes.css */
+
+:root {
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --logo-icon: var(--neutral-950);
+
+  /*Login Page*/
+  --login-page-bg: var(--neutral-100);
+  --login-page-container: var(--neutral-0);
+  --login-title-color: var(--neutral-950);
+  --login-text-color: var(--neutral-600);
+  --login-text-input-border-color: var(--neutral-300);
+  --login-text-input-color: var(--neutral-0);
+  --login-text-input-color-hover: var(--neutral-50);
+  --login-text-input-box-shadow:
+    0px 0px 0px 2px var(--neutral-0), 0px 0px 0px 4px var(--neutral-400);
+  --login-divider-color: var(--neutral-200);
+
+  /*Signup Page*/
+  --signup-page-bg: var(--neutral-100);
+  --signup-page-container: var(--neutral-0);
+  --signup-title-color: var(--neutral-950);
+  --signup-text-color: var(--neutral-600);
+  --signup-text-input-border-color: var(--neutral-300);
+  --signup-text-input-color: var(--neutral-0);
+  --signup-text-input-color-hover: var(--neutral-50);
+  --signup-text-input-box-shadow:
+    0px 0px 0px 2px var(--neutral-0), 0px 0px 0px 4px var(--neutral-400);
+  --signup-divider-color: var(--neutral-200);
+
+  /*Forget Password Page*/
+  --forget-password-page-bg: var(--neutral-100);
+  --forget-password-page-container: var(--neutral-0);
+  --forget-password-title-color: var(--neutral-950);
+  --forget-password-text-color: var(--neutral-600);
+  --forget-password-text-input-border-color: var(--neutral-300);
+  --forget-password-text-input-color: var(--neutral-0);
+  --forget-password-text-input-color-hover: var(--neutral-50);
+  --forget-password-text-input-box-shadow:
+    0px 0px 0px 2px var(--neutral-0), 0px 0px 0px 4px var(--neutral-400);
+  --forget-password-divider-color: var(--neutral-200);
+
+  /*Reset Password*/
+
+  --reset-password-page-bg: var(--neutral-100);
+  --reset-password-page-container: var(--neutral-0);
+  --reset-password-title-color: var(--neutral-950);
+  --reset-password-text-color: var(--neutral-600);
+  --reset-password-text-input-border-color: var(--neutral-300);
+  --reset-password-text-input-color: var(--neutral-0);
+  --reset-password-text-input-color-hover: var(--neutral-50);
+  --reset-password-text-input-box-shadow:
+    0px 0px 0px 2px var(--neutral-0), 0px 0px 0px 4px var(--neutral-400);
+  --reset-password-divider-color: var(--neutral-200);
+  --reset-password-error-section-color: var(--neutral-600);
+
+  /*Index Page*/
+  --universal-background-color: var(--neutral-0);
+  --page-header-bg-default: transparent;
+  --page-header-text-muted: var(--neutral-500);
+  --page-header-bg-secondary: var(--neutral-0);
+  --page-header-text-primary: var(--neutral-950);
+  --page-header-border-default: var(--neutral-300);
+  --page-header-icon-default: var(--neutral-500);
+  --page-header-divider-default: var(--neutral-200);
+
+  --sidebar-bg-default: var(--neutral-0);
+  --sidebar-icon-primary: var(--neutral-950);
+  --sidebar-bg-active: var(--neutral-100);
+  --sidebar-icon-default: var(--neutral-600);
+  --sidebar-icon-secondary: var(--neutral-700);
+  --sidebar-text-primary: var(--neutral-950);
+  --sidebar-text-muted: var(--neutral-500);
+  --sidebar-bg-secondary: var(--neutral-200);
+  --sidebar-divider-muted: var(--neutral-200);
+  --sidebar-divider-default: var(--neutral-200);
+
+  --all-notes-sidebar-bg-default: var(--neutral-0);
+  --all-notes-sidebar-bg-primary: var(--blue-500);
+  --all-notes-sidebar-bg-primary-hover: var(--blue-700);
+  --all-notes-sidebar-bg-primary-disabled: var(--neutral-100);
+  --all-notes-sidebar-text-primary: var(--neutral-950);
+  --all-notes-sidebar-text-secondary: var(--neutral-0);
+  --all-notes-sidebar-text-secondary-disabled: var(--neutral-300);
+  --all-notes-sidebar-border-primary-focus: var(--neutral-0);
+  --all-notes-sidebar-border-secondary-focus: var(--neutral-400);
+  --all-notes-sidebar-bg-active: var(--neutral-100);
+  --all-notes-sidebar-bg-secondary: var(--neutral-200);
+  --all-notes-sidebar-text-muted: var(--neutral-700);
+  --all-notes-sidebar-divider-muted: var(--neutral-200);
+  --all-notes-sidebar-divider-default: var(--neutral-200);
+
+  --right-sidebar-bg-default: var(--neutral-0);
+  --right-sidebar-border-default: var(--neutral-300);
+  --right-sidebar-icon-primary: var(--neutral-950);
+  --right-sidebar-text-primary: var(--neutral-950);
+  --right-sidebar-bg-secondary: var(--neutral-200);
+  --right-sidebar-divider-muted: var(--neutral-200);
+  --right-sidebar-divider-default: var(--neutral-200);
+  --note-content-text-muted: var(--neutral-700);
+  --note-content-icon-default: var(--neutral-700);
+  --note-content-divider-default: var(--neutral-200);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --logo-icon: var(--neutral-0);
+
+  /*Login Page*/
+  --login-page-bg: var(--neutral-700);
+  --login-page-container: var(--neutral-950);
+  --login-title-color: var(--neutral-0);
+  --login-text-color: var(--neutral-300);
+  --login-text-input-color: var(--neutral-950);
+  --login-text-input-border-color: var(--neutral-600);
+  --login-text-input-color-hover: var(--neutral-800);
+  --login-text-input-box-shadow:
+    0px 0px 0px 2px var(--neutral-950), 0px 0px 0px 4px var(--neutral-600);
+  --login-divider-color: var(--neutral-800);
+
+  /*Signup Page*/
+  --signup-page-bg: var(--neutral-700);
+  --signup-page-container: var(--neutral-950);
+  --signup-title-color: var(--neutral-0);
+  --signup-text-color: var(--neutral-300);
+  --signup-text-input-color: var(--neutral-950);
+  --signup-text-input-border-color: var(--neutral-600);
+  --signup-text-input-color-hover: var(--neutral-800);
+  --signup-text-input-box-shadow:
+    0px 0px 0px 2px var(--neutral-950), 0px 0px 0px 4px var(--neutral-600);
+  --signup-divider-color: var(--neutral-800);
+
+  /*Forget Password Page*/
+  --forget-password-page-bg: var(--neutral-700);
+  --forget-password-page-container: var(--neutral-950);
+  --forget-password-title-color: var(--neutral-0);
+  --forget-password-text-color: var(--neutral-300);
+  --forget-password-text-input-color: var(--neutral-950);
+  --forget-password-text-input-border-color: var(--neutral-600);
+  --forget-password-text-input-color-hover: var(--neutral-800);
+  --forget-password-text-input-box-shadow:
+    0px 0px 0px 2px var(--neutral-950), 0px 0px 0px 4px var(--neutral-600);
+  --forget-password-divider-color: var(--neutral-800);
+
+  /* Reset Password Page*/
+  --reset-password-page-bg: var(--neutral-700);
+  --reset-password-page-container: var(--neutral-950);
+  --reset-password-title-color: var(--neutral-0);
+  --reset-password-text-color: var(--neutral-300);
+  --reset-password-text-input-color: var(--neutral-950);
+  --reset-password-text-input-border-color: var(--neutral-600);
+  --reset-password-text-input-color-hover: var(--neutral-800);
+  --reset-password-text-input-box-shadow:
+    0px 0px 0px 2px var(--neutral-950), 0px 0px 0px 4px var(--neutral-600);
+  --reset-password-divider-color: var(--neutral-800);
+  --reset-password-error-section-color: var(--neutral-400);
+
+  /*Index Page*/
+  --universal-background-color: var(--neutral-950);
+
+  --page-header-bg-default: var(--neutral-950);
+  --page-header-text-muted: var(--neutral-500);
+  --page-header-bg-secondary: var(--neutral-950);
+  --page-header-text-primary: var(--neutral-400);
+  --page-header-border-default: var(--neutral-600);
+  --page-header-icon-default: var(--neutral-500);
+  --page-header-divider-default: var(--neutral-800);
+
+  --sidebar-bg-default: var(--neutral-950);
+  --sidebar-icon-primary: var(--neutral-0);
+  --sidebar-bg-active: var(--neutral-800);
+  --sidebar-icon-default: var(--neutral-200);
+  --sidebar-icon-secondary: var(--neutral-200);
+  --sidebar-text-primary: var(--neutral-0);
+  --sidebar-text-muted: var(--neutral-500);
+  --sidebar-bg-secondary: var(--neutral-700);
+  --sidebar-divider-muted: var(--neutral-900);
+  --sidebar-divider-default: var(--neutral-800);
+
+  --all-notes-sidebar-bg-default: var(--neutral-950);
+  --all-notes-sidebar-bg-primary: var(--blue-500);
+  --all-notes-sidebar-bg-primary-hover: var(--blue-700);
+  --all-notes-sidebar-bg-primary-disabled: var(--neutral-100);
+  --all-notes-sidebar-text-primary: var(--neutral-0);
+  --all-notes-sidebar-text-secondary: var(--neutral-0);
+  --all-notes-sidebar-text-secondary-disabled: var(--neutral-300);
+  --all-notes-sidebar-border-primary-focus: var(--neutral-0);
+  --all-notes-sidebar-border-secondary-focus: var(--neutral-400);
+  --all-notes-sidebar-bg-active: var(--neutral-800);
+  --all-notes-sidebar-bg-secondary: var(--neutral-700);
+  --all-notes-sidebar-text-muted: var(--neutral-200);
+  --all-notes-sidebar-divider-muted: var(--neutral-900);
+  --all-notes-sidebar-divider-default: var(--neutral-800);
+
+  --right-sidebar-bg-default: var(--neutral-950);
+  --right-sidebar-border-default: var(--neutral-600);
+  --right-sidebar-icon-primary: var(--neutral-0);
+  --right-sidebar-text-primary: var(--neutral-0);
+  --right-sidebar-bg-secondary: var(--neutral-700);
+  --right-sidebar-divider-muted: var(--neutral-800);
+  --right-sidebar-divider-default: var(--neutral-800);
+  --note-content-text-muted: var(--neutral-300);
+  --note-content-icon-default: var(--neutral-200);
+  --note-content-divider-default: var(--neutral-800);
+
+}

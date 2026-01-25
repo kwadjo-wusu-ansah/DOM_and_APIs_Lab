@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,45 +8,524 @@
     <title>Sidebar All Notes</title>
   </head>
   <body>
+    <!-- Sidebar All Notes  Light and Dark Modes-->
     <aside class="sidebar">
-      <button class="sidebar__btn sidebar__btn--primary">Primary</button>
+      <button class="sidebar__btn sidebar__btn--primary">
+        + Create New Note
+      </button>
 
       <ul class="sidebar__nav">
-        <li>
-          <a href="#">
-            <div class="sidebar__note-item">
-              <p>React Performance Optimization</p>
-              <div class="sidebar__note-item-tags">
-                <div class="sidebar__tags">
-                  <p class="sidebar__tags-text">Dev</p>
-                </div>
-                <div class="sidebar__tags">
-                  <p class="sidebar__tags-text">React</p>
-                </div>
-                <p class="sidebar__note-item-date">29 Oct 2024</p>
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <p class="sidebar__item-title">React Performance Optimization</p>
+            <div class="sidebar__note-item-tags">
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Dev</p>
+              </div>
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">React</p>
               </div>
             </div>
+            <p class="sidebar__note-item-date">29 Oct 2024</p>
           </a>
         </li>
-        <li>
-          <!-- <div class="sidebar__note-item">
-              <h1>Japan Travel Planning</h1>
-              <div class="sidebar__note-item-tags">
-                <div class="sidebar__tags">
-                  <p class="sidebar__tags-text">Travel</p>
-                </div>
-                <div class="sidebar__tags">
-                  <p class="sidebar__tags-text">Personal</p>
-                </div>
-                <p class="sidebar__note-item-date">29 Oct 2024</p>
+   <hr class="sidebar__nav-divider" />  selected so dont show divider 
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <p class="sidebar__item-title">Japan Travel Planning</p>
+            <div class="sidebar__note-item-tags">
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Travel</p>
               </div>
-            </div> -->
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Personal</p>
+              </div>
+            </div>
+            <p class="sidebar__note-item-date">28 Oct 2024</p>
+          </a>
+        </li>
+        <hr class="sidebar__nav-divider" />
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <p class="sidebar__item-title">Favorite Pasta Recipes</p>
+            <div class="sidebar__note-item-tags">
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Cooking</p>
+              </div>
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Recipes</p>
+              </div>
+            </div>
+            <p class="sidebar__note-item-date">27 Oct 2024</p>
+          </a>
+        </li>
+        <hr class="sidebar__nav-divider" />
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <p class="sidebar__item-title">TypeScript Migration Guide</p>
+            <div class="sidebar__note-item-tags">
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Dev</p>
+              </div>
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">React</p>
+              </div>
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">TypeScript</p>
+              </div>
+            </div>
+            <p class="sidebar__note-item-date">27 Oct 2024</p>
+          </a>
+        </li>
+        <hr class="sidebar__nav-divider" />
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <p class="sidebar__item-title">Weekly Workout Plan</p>
+            <div class="sidebar__note-item-tags">
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Health</p>
+              </div>
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Personal</p>
+              </div>
+            </div>
+            <p class="sidebar__note-item-date">25 Oct 2024</p>
+          </a>
+        </li>
+        <hr class="sidebar__nav-divider" />
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <p class="sidebar__item-title">Gift Ideas</p>
+            <div class="sidebar__note-item-tags">
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Personal</p>
+              </div>
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Shopping</p>
+              </div>
+            </div>
+            <p class="sidebar__note-item-date">20 Oct 2024</p>
+          </a>
+        </li>
+        <hr class="sidebar__nav-divider" />
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <p class="sidebar__item-title">React Component Library</p>
+            <div class="sidebar__note-item-tags">
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Dev</p>
+              </div>
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">React</p>
+              </div>
+            </div>
+            <p class="sidebar__note-item-date">15 Oct 2024</p>
+          </a>
+        </li>
+        <hr class="sidebar__nav-divider" />
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <p class="sidebar__item-title">Meal Prep Ideas</p>
+            <div class="sidebar__note-item-tags">
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Food</p>
+              </div>
+              <div class="sidebar__tags">
+                <p class="sidebar__tags-text">Personal</p>
+              </div>
+            </div>
+            <p class="sidebar__note-item-date">14 Oct 2024</p>
+          </a>
+        </li>
+        <hr class="sidebar__nav-divider" />
+      </ul>
+    </aside>
+    <hr class="divider" />
+
+    <!-- Sidebar [Navigation] Dark and Light Mode-->
+    <!-- <aside class="sidebar">
+      <div class="sidebar__logo-container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="95"
+          height="28"
+          viewBox="0 0 95 28"
+        >
+          <g clip-path="url(#a)">
+            <g
+              fill="#335CFF"
+              fill-rule="evenodd"
+              clip-path="url(#b)"
+              clip-rule="evenodd"
+            >
+              <path
+                d="M27.4 2.158C26.367.192 22.974.81 20.04 1.595 7.291 6.294 2.781 15.842 1.196 21.53a1.051 1.051 0 0 0-.13.482c-.628 2.413-.713 4.022-.714 4.075a1.048 1.048 0 0 0 1.003 1.09c.016.002.031.002.047.002.558 0 1.023-.441 1.048-1.005.007-.171.072-1.346.468-3.101 3.511-.149 7.046-1.456 10.518-3.898a1.05 1.05 0 0 0 .049-1.681l-1.602-1.269 5.256-.515c.214-.02.416-.106.58-.246a79.991 79.991 0 0 0 5.333-5.056c3.872-4.06 5.211-6.604 4.348-8.25ZM21.178 25.08h-8.974a1.05 1.05 0 0 0 0 2.1h8.974a1.05 1.05 0 0 0 0-2.1Z"
+              />
+            </g>
+            <path
+              d="M43.336 23.615c-.567 0-.974-.123-1.219-.368-.245-.26-.368-.744-.368-1.449 0-.475.046-1.05.138-1.725.092-.675.253-1.694.483-3.059l.368-2.231c.215-1.319.406-2.699.575-4.14.153-1.227.23-2.147.23-2.76 0-.69-.253-1.035-.759-1.035-.383 0-.866.207-1.449.621-.567.399-1.18 1.043-1.84 1.932-.215.291-.452.437-.713.437-.215 0-.406-.1-.575-.299a1.2 1.2 0 0 1-.23-.713c0-.26.046-.506.138-.736.092-.245.26-.537.506-.874.751-1.027 1.587-1.817 2.507-2.369.92-.567 1.886-.851 2.898-.851.843 0 1.472.26 1.886.782.43.521.644 1.28.644 2.277 0 .89-.123 2.177-.368 3.864.767-2.27 1.74-3.987 2.921-5.152 1.18-1.18 2.568-1.771 4.163-1.771 1.257 0 2.2.36 2.829 1.081.644.705.966 1.656.966 2.852 0 .675-.1 1.495-.299 2.461l-1.403 6.578c-.153.767-.23 1.426-.23 1.978 0 .644.146 1.127.437 1.449.307.322.728.483 1.265.483.506 0 .997-.169 1.472-.506.49-.337 1.066-.897 1.725-1.679.184-.215.391-.322.621-.322.2 0 .353.092.46.276.123.184.184.437.184.759 0 .598-.146 1.073-.437 1.426-.797.966-1.587 1.671-2.369 2.116a4.907 4.907 0 0 1-2.461.667c-1.303 0-2.323-.383-3.059-1.15-.736-.782-1.104-1.825-1.104-3.128 0-.506.038-1.058.115-1.656.092-.598.238-1.357.437-2.277l.92-4.209.161-.736c.077-.353.138-.682.184-.989.046-.322.069-.636.069-.943 0-.49-.138-.882-.414-1.173-.276-.291-.667-.437-1.173-.437-.92 0-1.84.49-2.76 1.472-.92.981-1.771 2.568-2.553 4.761-.782 2.177-1.395 4.968-1.84 8.372-.107.782-.268 1.326-.483 1.633-.2.307-.598.46-1.196.46Zm27.365-7.176c.2 0 .353.1.46.299.108.2.161.452.161.759 0 .736-.222 1.173-.667 1.311-.92.322-1.932.506-3.036.552-.291 1.288-.866 2.323-1.725 3.105-.859.767-1.832 1.15-2.92 1.15-.92 0-1.71-.222-2.37-.667a4.268 4.268 0 0 1-1.472-1.771 5.672 5.672 0 0 1-.506-2.392c0-1.165.223-2.2.667-3.105.445-.92 1.058-1.633 1.84-2.139a4.585 4.585 0 0 1 2.6-.782c1.164 0 2.1.406 2.805 1.219.72.797 1.142 1.786 1.265 2.967.72-.046 1.58-.2 2.576-.46.123-.03.23-.046.322-.046Zm-7.544 4.738c.49 0 .913-.2 1.265-.598.368-.399.614-.974.736-1.725a3.265 3.265 0 0 1-1.104-1.265 3.842 3.842 0 0 1-.368-1.656c0-.245.023-.49.07-.736h-.116c-.613 0-1.127.299-1.54.897-.4.583-.599 1.41-.599 2.484 0 .843.161 1.487.483 1.932.337.445.728.667 1.173.667Zm16.573-2.806c.2 0 .353.092.46.276.123.184.184.437.184.759 0 .613-.146 1.089-.437 1.426a9.782 9.782 0 0 1-2.162 2.001c-.782.521-1.679.782-2.69.782-3.129 0-4.693-2.2-4.693-6.601 0-.675.023-1.357.07-2.047h-.898c-.46 0-.774-.084-.943-.253-.153-.169-.23-.437-.23-.805 0-.859.345-1.288 1.035-1.288h1.311c.26-1.687.66-3.228 1.196-4.623.537-1.395 1.18-2.507 1.932-3.335.767-.828 1.587-1.242 2.461-1.242.644 0 1.15.284 1.518.851.368.567.552 1.28.552 2.139 0 2.377-.997 4.447-2.99 6.21h2.576c.245 0 .422.054.53.161.106.107.16.307.16.598 0 1.058-.866 1.587-2.599 1.587h-2.806c-.03.767-.046 1.365-.046 1.794 0 1.595.184 2.714.552 3.358.383.644.981.966 1.794.966.66 0 1.242-.2 1.748-.598.506-.399 1.104-.997 1.794-1.794.184-.215.391-.322.621-.322ZM75.705 5.629c-.23 0-.49.291-.782.874-.276.567-.544 1.365-.805 2.392a33.648 33.648 0 0 0-.62 3.381c.904-.782 1.578-1.656 2.023-2.622.46-.981.69-1.87.69-2.668 0-.905-.169-1.357-.506-1.357ZM88.3 18.371c.2 0 .353.092.46.276.123.184.184.437.184.759 0 .613-.145 1.089-.437 1.426-.567.69-1.372 1.326-2.415 1.909a6.604 6.604 0 0 1-3.312.874c-1.61 0-2.86-.437-3.749-1.311-.889-.874-1.334-2.07-1.334-3.588 0-1.058.223-2.04.667-2.944.445-.92 1.058-1.648 1.84-2.185a4.71 4.71 0 0 1 2.691-.805c.89 0 1.603.268 2.14.805.536.521.804 1.234.804 2.139 0 1.058-.383 1.97-1.15 2.737-.751.751-2.031 1.35-3.84 1.794.383.705 1.111 1.058 2.184 1.058.69 0 1.472-.238 2.346-.713a7.892 7.892 0 0 0 2.3-1.909c.184-.215.391-.322.621-.322Zm-5.796-3.335c-.567 0-1.05.33-1.449.989-.383.66-.575 1.457-.575 2.392v.046c.905-.215 1.618-.537 2.14-.966.52-.43.781-.928.781-1.495 0-.291-.084-.521-.253-.69-.153-.184-.368-.276-.644-.276Zm8.386 9.085c-.798 0-1.411-.184-1.84-.552-.414-.368-.621-.782-.621-1.242 0-.399.145-.744.437-1.035.291-.291.72-.437 1.288-.437.199 0 .429.023.69.069l.62.069a2.84 2.84 0 0 0-.275-1.127 4.879 4.879 0 0 0-.598-1.012 12.547 12.547 0 0 0-.69-.874c-.476.905-.951 1.656-1.426 2.254-.46.598-.966 1.165-1.518 1.702-.276.276-.568.414-.874.414a.77.77 0 0 1-.598-.253 1.007 1.007 0 0 1-.23-.667c0-.307.107-.59.322-.851l.299-.368c.843-1.043 1.48-1.901 1.909-2.576.276-.445.552-.974.828-1.587.291-.613.667-1.449 1.127-2.507.291-.675.897-1.012 1.817-1.012.429 0 .728.038.897.115.168.077.253.2.253.368 0 .092-.031.238-.092.437-.062.2-.146.399-.253.598-.276.552-.414 1.02-.414 1.403 0 .23.076.483.23.759.168.276.421.621.759 1.035.49.644.858 1.196 1.104 1.656.26.445.39.935.39 1.472 0 .644-.153 1.257-.46 1.84a3.588 3.588 0 0 1-1.241 1.38c-.537.353-1.15.529-1.84.529Z"
+            />
+          </g>
+          <defs>
+            <clipPath id="a"><path fill="#fff" d="M0 0h95v28H0z" /></clipPath>
+            <clipPath id="b"><path fill="#fff" d="M0 0h28v28H0z" /></clipPath>
+          </defs>
+        </svg>
+      </div>
+
+      <ul class="sidebar__nav">
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+           
+            <svg
+              class="sidebar__item-icon-fill"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.496 8.025a.75.75 0 0 1 .75.75v8.675a2.314 2.314 0 0 0 2.314 2.314h8.88a2.314 2.314 0 0 0 2.313-2.314V8.775a.75.75 0 0 1 1.5 0v8.675a3.814 3.814 0 0 1-3.814 3.814H7.56a3.814 3.814 0 0 1-3.814-3.814V8.775a.75.75 0 0 1 .75-.75Z"
+                clip-rule="evenodd"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M10.06 3.41a3.127 3.127 0 0 1 3.88 0l7.525 5.958a.75.75 0 1 1-.93 1.176l-7.526-5.957a1.628 1.628 0 0 0-2.018 0l-7.525 5.957a.75.75 0 1 1-.931-1.176L10.06 3.41Z"
+                clip-rule="evenodd"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M17.668 4.193a.75.75 0 0 1 .75.75v2.354a.75.75 0 0 1-1.5 0V4.943a.75.75 0 0 1 .75-.75ZM11.974 13.688h.055c.377 0 .702 0 .97.02.283.022.565.071.838.203a2.25 2.25 0 0 1 1.05 1.05c.131.272.18.554.202.837.02.268.02.593.02.97v3.746a.75.75 0 0 1-1.5 0v-3.718c0-.412 0-.678-.015-.881-.016-.195-.041-.268-.059-.303a.75.75 0 0 0-.35-.35c-.035-.017-.108-.043-.302-.058a12.747 12.747 0 0 0-.881-.017c-.412 0-.679.001-.881.017-.195.015-.268.04-.303.058a.75.75 0 0 0-.35.35c-.017.035-.043.108-.058.303-.016.203-.016.469-.016.88v3.72a.75.75 0 0 1-1.5 0v-3.747c0-.377 0-.702.02-.97.022-.283.071-.565.203-.838a2.25 2.25 0 0 1 1.05-1.05c.273-.131.554-.18.837-.202.268-.02.593-.02.97-.02Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <p class="sidebar__item-title">All Notes</p>
+            <svg
+              class="sidebar__item-icon-fill"
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.47 7.47a.75.75 0 0 1 1.06 0l4 4a.75.75 0 0 1 0 1.06l-4 4a.75.75 0 1 1-1.06-1.06L12.94 12 9.47 8.53a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </li>
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <svg
+              class="sidebar__item-icon-stroke"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M21 7.782v8.435C21 19.165 18.919 21 15.974 21H8.026C5.081 21 3 19.165 3 16.216V7.782C3 4.834 5.081 3 8.026 3h7.948C18.919 3 21 4.843 21 7.782Z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="m15 14-3.002 3L9 14M11.998 17v-7M20.934 7H3.059"
+              />
+            </svg>
+            <p class="sidebar__item-title">Archived Notes</p>
+          </a>
+        </li>
+        <hr class="sidebar__nav-divider" />
+        <p class="sidebar__tag-title">Tags</p>
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link-tag">
+            <svg
+              class="sidebar__item-icon-stroke"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+                d="M3.016 5.966c.003-1.411 1.07-2.677 2.456-2.916.284-.05 3.616-.042 4.995-.041 1.364 0 2.527.491 3.49 1.452 2.045 2.042 4.088 4.085 6.128 6.13 1.208 1.21 1.224 3.066.022 4.28a805.496 805.496 0 0 1-5.229 5.228c-1.212 1.201-3.069 1.186-4.279-.022-2.064-2.058-4.127-4.115-6.182-6.182-.795-.8-1.264-1.766-1.368-2.895-.084-.903-.035-4.26-.033-5.034Z"
+                clip-rule="evenodd"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+                d="M9.907 8.315a1.607 1.607 0 0 1-1.61 1.583c-.872-.002-1.599-.73-1.594-1.596a1.604 1.604 0 0 1 1.633-1.607c.864.003 1.575.736 1.571 1.62Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <p class="sidebar__item-title">Cooking</p>
+          </a>
+        </li>
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link-tag">
+            <svg
+              class="sidebar__item-icon-stroke"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+                d="M3.016 5.966c.003-1.411 1.07-2.677 2.456-2.916.284-.05 3.616-.042 4.995-.041 1.364 0 2.527.491 3.49 1.452 2.045 2.042 4.088 4.085 6.128 6.13 1.208 1.21 1.224 3.066.022 4.28a805.496 805.496 0 0 1-5.229 5.228c-1.212 1.201-3.069 1.186-4.279-.022-2.064-2.058-4.127-4.115-6.182-6.182-.795-.8-1.264-1.766-1.368-2.895-.084-.903-.035-4.26-.033-5.034Z"
+                clip-rule="evenodd"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+                d="M9.907 8.315a1.607 1.607 0 0 1-1.61 1.583c-.872-.002-1.599-.73-1.594-1.596a1.604 1.604 0 0 1 1.633-1.607c.864.003 1.575.736 1.571 1.62Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <p class="sidebar__item-title">Dev</p>
+          </a>
+        </li>
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link-tag">
+            <svg
+              class="sidebar__item-icon-stroke"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+                d="M3.016 5.966c.003-1.411 1.07-2.677 2.456-2.916.284-.05 3.616-.042 4.995-.041 1.364 0 2.527.491 3.49 1.452 2.045 2.042 4.088 4.085 6.128 6.13 1.208 1.21 1.224 3.066.022 4.28a805.496 805.496 0 0 1-5.229 5.228c-1.212 1.201-3.069 1.186-4.279-.022-2.064-2.058-4.127-4.115-6.182-6.182-.795-.8-1.264-1.766-1.368-2.895-.084-.903-.035-4.26-.033-5.034Z"
+                clip-rule="evenodd"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+                d="M9.907 8.315a1.607 1.607 0 0 1-1.61 1.583c-.872-.002-1.599-.73-1.594-1.596a1.604 1.604 0 0 1 1.633-1.607c.864.003 1.575.736 1.571 1.62Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <p class="sidebar__item-title">Fitness</p>
+          </a>
         </li>
       </ul>
     </aside>
+    <hr class="divider" /> -->
+
+    <!-- Settings Menu Light and Dark Mode -->
+
+    <!-- <aside class="sidebar">
+      <ul class="sidebar__nav">
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <svg
+              class="sidebar__item-icon-stroke"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M12.055 3v1.372m0 15.256V21m9-9h-1.372M4.427 12H3.055m15.364-6.364-.97.97M6.66 17.394l-.97.97m12.728 0-.97-.97M6.66 6.606l-.97-.97"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M12.055 7.805a4.195 4.195 0 1 1 0 8.39 4.195 4.195 0 0 1 0-8.39Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <p class="sidebar__item-title">Color Theme</p>
+            <svg
+              class="sidebar__item-icon-fill"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.47 7.47a.75.75 0 0 1 1.06 0l4 4a.75.75 0 0 1 0 1.06l-4 4a.75.75 0 1 1-1.06-1.06L12.94 12 9.47 8.53a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </li>
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <svg
+              class="sidebar__item-icon-fill"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M20.999 10.979H14.63a1 1 0 0 0-1 1v1.13a1 1 0 1 0 2 0v-.13h1.154v4.409h-.39a1 1 0 1 0 0 2h2.84a1 1 0 1 0 0-2h-.45v-4.41h1.214v.13a1 1 0 1 0 2 0v-1.13a1 1 0 0 0-1-1Z"
+                clip-rule="evenodd"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M12.185 17.388H10.29V6.61h4.415v1.25a1 1 0 0 0 2 0V5.61a1 1 0 0 0-1-1H2.999a1 1 0 0 0-1 1v2.25a1 1 0 0 0 2 0V6.61H8.29v10.78H6.517a1 1 0 1 0 0 2h5.668a1 1 0 1 0 0-2Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <p class="sidebar__item-title">Font Theme</p>
+          </a>
+        </li>
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <svg
+              class="sidebar__item-icon-stroke"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+                d="M16.424 9.448V7.3a4.552 4.552 0 0 0-4.551-4.551 4.55 4.55 0 0 0-4.57 4.53v2.168"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+                d="M15.683 21.25H8.042a3.792 3.792 0 0 1-3.792-3.792v-4.29a3.792 3.792 0 0 1 3.792-3.791h7.641a3.792 3.792 0 0 1 3.792 3.792v4.289a3.792 3.792 0 0 1-3.792 3.792Z"
+                clip-rule="evenodd"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+                d="M11.862 14.203v2.22"
+              />
+            </svg>
+            <p class="sidebar__item-title">Change Password</p>
+          </a>
+        </li>
+
+        <hr class="sidebar__nav-divider" />
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link-tag">
+            <svg
+              class="sidebar__item-icon-stroke"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+                d="M21 11.998H8.945m12.055 0-2.932-2.934M21 11.998l-2.932 2.936M14.556 8.266V7.251c0-1.56-1.121-2.891-2.651-3.15L6.702 3.046C4.765 2.718 3 4.219 3 6.195v11.61c0 1.976 1.765 3.477 3.702 3.15l5.203-1.057a3.188 3.188 0 0 0 2.65-3.149v-1.014"
+              />
+            </svg>
+            <p class="sidebar__item-title">Logout</p>
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <hr class="divider" /> -->
+
+    <!-- Menu Bar/Sidebar [Right Menu]  Light and  Dark Mode-->
+
+    <aside class="sidebar">
+      <ul class="sidebar__nav">
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <svg
+              class="sidebar__item-icon-stroke"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M21 7.782v8.435C21 19.165 18.919 21 15.974 21H8.026C5.081 21 3 19.165 3 16.216V7.782C3 4.834 5.081 3 8.026 3h7.948C18.919 3 21 4.843 21 7.782Z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="m15 14-3.002 3L9 14M11.998 17v-7M20.934 7H3.059"
+              />
+            </svg>
+            <p class="sidebar__item-title">Archive Note</p>
+          </a>
+        </li>
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar_link">
+            <svg
+              class="sidebar__item-icon-stroke"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="25"
+              fill="none"
+              viewBox="0 0 24 25"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="m14.852 3.879.818 1.785h2.64c.811 0 1.47.658 1.47 1.47V8.22c0 .555-.45 1.005-1.006 1.005H5.005C4.45 9.226 4 8.776 4 8.221V7.133c0-.811.658-1.47 1.47-1.47h2.639l.818-1.784c.246-.536.78-.879 1.37-.879h3.185c.59 0 1.125.343 1.37.879ZM18.24 9.3v8.686c0 1.665-1.333 3.014-2.977 3.014H8.517c-1.644 0-2.977-1.349-2.977-3.014V9.301M10.2 12.816v4.509m3.38-4.509v4.509"
+              />
+            </svg>
+            <p class="sidebar__item-title">Delete Note</p>
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <hr class="divider" />
 
     <main>
-      <p>content</p>
+      <p></p>
     </main>
   </body>
 </html>

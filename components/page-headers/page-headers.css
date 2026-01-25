@@ -5,7 +5,8 @@
 }
 
 /*---Desktop Page-Header */
-/* .page-header {
+
+.page-header {
   width: 1168px;
   display: flex;
   justify-content: space-between;
@@ -53,7 +54,7 @@
   width: 1168px;
   height: 1px;
   color: var(--neutral-200);
-} */
+}
 
 /*---Tablet Page-Header Light Mode*/
 
@@ -327,7 +328,7 @@
 
 /*---Mobile Page Header Control Light Mode*/
 
-.page-header-control {
+/* .page-header-control {
   display: flex;
   justify-content: space-between;
   align-items: start;
@@ -396,4 +397,4 @@
   width: 343px;
   height: 1px;
   color: var(--neutral-200);
-}
+} */

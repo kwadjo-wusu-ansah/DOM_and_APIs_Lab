@@ -1,0 +1,152 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  background: var(--neutral-50);
+  padding: 24px;
+  display: grid;
+  gap: 28px;
+  font-family: var(--text-preset-font-family-sans-serif);
+}
+
+.demo {
+  display: grid;
+  gap: 12px;
+}
+
+.demo__title {
+  font-size: var(--text-preset-3-font-size);
+  font-weight: var(--text-preset-3-font-weight);
+  color: var(--neutral-700);
+}
+
+/* ===== Component: Menu ===== */
+.menu {
+  width: 768px;
+  height: 74px;
+
+  padding: 12px 32px; /* top/bottom 12, left/right 32 */
+  display: flex;
+  align-items: center;
+  gap: 0;
+  box-shadow: var(--small-shadow);
+}
+
+/* Themes */
+.menu--light {
+  background: var(--neutral-0);
+  color: var(--neutral-600);
+
+  /* divider color (light) */
+  --menu-divider-color: var(--neutral-100);
+}
+
+.menu--dark {
+  background: var(--neutral-950);
+  color: var(--neutral-400);
+  box-shadow: none;
+
+  /* divider color (dark) */
+  --menu-divider-color: var(--neutral-800);
+}
+
+/* Items */
+.menu__item {
+  flex: 1;
+  min-width: 0;
+
+  text-decoration: none;
+  color: inherit;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  height: 50px;
+  border-radius: var(--radius-10);
+
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.menu__icon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+}
+
+.menu__icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.menu__label {
+  font-size: var(--text-preset-6-font-size);
+  font-weight: var(--text-preset-5-6-font-weight);
+  letter-spacing: var(--text-preset-4-5-6-letter-spacing);
+  line-height: var(--text-preset-line-height-sans-serif);
+}
+
+/* Active Home item — shared for light & dark */
+.menu__item--active {
+  width: 80px;
+  height: 50px;
+
+  background-color: var(--blue-50);
+  color: var(--blue-500);
+
+  border-radius: var(--radius-4);
+
+  flex: 0 0 auto;
+}
+/* Focus visible for accessibility */
+.menu__item:focus-visible {
+  outline: none;
+  box-shadow: 0px 0px 0px 2px var(--neutral-0),
+    0px 0px 0px 4px var(--neutral-400);
+}
+
+/* Divider: between options (TABLET ONLY) */
+.menu__divider {
+  display: none; /* default hidden */
+  width: 1px;
+  height: 50px;
+  background: var(--menu-divider-color);
+  margin: 0 16px;
+  flex: 0 0 auto;
+}
+
+/* Tablet shows dividers */
+.menu--tablet .menu__divider {
+  display: block;
+}
+
+/* ===== Variants ===== */
+
+/* Tablet variant: icons + labels (default look) */
+.menu--tablet .menu__label {
+  display: inline;
+}
+
+/* Compact variant: icons only */
+.menu--compact {
+  width: 375px;
+
+  justify-content: space-between;
+}
+
+.menu--compact .menu__item {
+  flex: 0 0 auto;
+  width: 64px;
+}
+
+.menu--compact .menu__label {
+  display: none;
+}

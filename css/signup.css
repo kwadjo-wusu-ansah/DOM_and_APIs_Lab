@@ -13,7 +13,7 @@ body {
   width: 100%;
 }
 
-.login__container {
+.signup__container {
   height: 618px;
   width: 540px;
   margin: 60px auto;
@@ -21,23 +21,23 @@ body {
   border-radius: var(--radius-12);
   background-color: var(--login-page-container);
 }
-.login__logo-wrapper {
+.signup__logo-wrapper {
   display: flex;
   justify-content: center;
   padding-bottom: 8px;
 }
 
-.login__logo-icon {
+.signup__logo-icon {
   fill: var(--logo-icon);
 }
 
-.login__header {
+.signup__header {
   text-align: center;
   margin-top: 16px;
   margin-bottom: 16px;
 }
 
-.login__header-title {
+.signup__header-title {
   font-size: var(--text-preset-1-font-size);
   letter-spacing: var(--text-preset-1-2-letter-spacing);
   font-weight: var(--text-preset-1-2-font-weight);
@@ -45,7 +45,7 @@ body {
   margin-bottom: 8px;
 }
 
-.login__header-text {
+.signup__header-text {
   font-size: var(--text-preset-4-5-font-size);
   letter-spacing: var(--text-preset-4-5-6-letter-spacing);
   font-weight: var(--text-preset-5-6-font-weight);
@@ -53,24 +53,24 @@ body {
 }
 
 /*Text box */
-.login__text-box {
+.signup__text-box {
   padding-top: 24px;
 }
 
-.login__text-box-header {
+.signup__text-box-header {
   width: 444px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 6px;
 }
-.login__text-box-label {
+.signup__text-box-label {
   font-family: var(--text-preset-font-family-sans-serif);
   font-size: var(--text-preset-4-5-font-size);
   letter-spacing: var(--text-preset-4-5-6-letter-spacing);
   font-weight: var(--text-preset-4-font-weight);
 }
 
-.login__text-box-link {
+.signup__text-box-link {
   font-family: var(--text-preset-font-family-sans-serif);
   letter-spacing: var(--text-preset-4-5-6-letter-spacing);
   font-weight: var(--text-preset-5-6-font-weight);
@@ -82,12 +82,12 @@ body {
   color: var(--neutral-600);
 }
 
-.login__text-box-link:hover,
-.login__text-box-link:focus {
+.signup__text-box-link:hover,
+.signup__text-box-link:focus {
   color: var(--blue-500);
 }
 
-.login__text-box-body-input {
+.signup__text-box-body-input {
   position: relative;
   display: inline-block;
   color: var(--neutral-500);
@@ -98,11 +98,11 @@ body {
   margin-bottom: 6px;
 }
 
-.login__text-box-body {
+.signup__text-box-body {
   margin-bottom: 16px;
 }
 
-.login__text-box-show-icon1 {
+.signup__text-box-show-icon1 {
   position: absolute;
   left: 12px;
   top: 50%;
@@ -110,7 +110,7 @@ body {
   fill: currentColor;
 }
 
-.login__text-box-input {
+.signup__text-box-input {
   width: 444px;
   height: 44px;
   border-radius: var(--radius-8);
@@ -118,33 +118,33 @@ body {
   padding: 12px 24px;
   background-color: var(--login-text-input-color);
 }
-.login__text-box-input:hover {
+.signup__text-box-input:hover {
   background-color: var(--login-text-input-color-hover);
 }
 
-.login__text-box-input:focus-visible {
+.signup__text-box-input:focus-visible {
   outline: none;
   box-shadow: var(--login-text-input-box-shadow);
 }
 
-.login__text-box-input:disabled {
+.signup__text-box-input:disabled {
   outline: none;
   border: 1px solid var(--neutral-300);
 }
-.login__text-box-input:disabled::placeholder {
+.signup__text-box-input:disabled::placeholder {
   color: var(--neutral-300);
 }
 
-.login__text-box-input:-webkit-autofill,
-.login__text-box-input:autofill {
+.signup__text-box-input:-webkit-autofill,
+.signup__text-box-input:autofill {
   background-color: var(--neutral-300);
 }
 
-.login__text-box-input:invalid {
+.signup__text-box-input:invalid {
   border-color: var(--red-500);
 }
 
-.login__text-box-show-icon2 {
+.signup__text-box-show-icon2 {
   position: absolute;
   right: 12px;
   top: 50%;
@@ -152,7 +152,7 @@ body {
   fill: currentColor;
 }
 
-.login__text-box-info {
+.signup__text-box-info {
   width: 300px;
   font-family: var(--text-preset-font-family-sans-serif);
   font-size: var(--text-preset-6-font-size);
@@ -165,15 +165,15 @@ body {
 }
 
 /*this showed also be appended in js for error*/
-.login__text-box--error .login__text-box-body .login__text-box-info {
+.signup__text-box--error .signup__text-box-body .signup__text-box-info {
   color: var(--red-500);
 }
 /*this showed be appended in js for disabled*/
-.login__text-box--disabled .login__text-box-body .login__text-box-info {
+.signup__text-box--disabled .signup__text-box-body .signup__text-box-info {
   color: var(--neutral-300);
 }
 
-.login__btn {
+.signup__btn {
   height: 41px;
   padding: var(--spacing-150) var(--spacing-200);
   border-radius: var(--radius-8);
@@ -187,41 +187,41 @@ body {
   gap: var(--spacing-100);
 }
 
-.login__btn--primary {
+.signup__btn--primary {
   width: 444px;
   background-color: var(--blue-500);
   color: var(--neutral-0);
   border: none;
 }
 
-.login__btn--primary:hover {
+.signup__btn--primary:hover {
   background-color: var(--blue-700);
 }
-.login__btn--primary:focus-visible {
+.signup__btn--primary:focus-visible {
   outline: none;
   box-shadow:
     0px 0px 0px 2px var(--neutral-0),
     0px 0px 0px 4px var(--neutral-400);
 }
 
-.login__btn--primary:disabled {
+.signup__btn--primary:disabled {
   background-color: var(--neutral-100);
   color: var(--neutral-300);
 }
 
-.login__divider {
+.signup__divider {
   margin-top: 16px;
   margin-bottom: 16px;
 }
 
-.login__styled-line {
+.signup__styled-line {
   width: 444px;
   height: 1px;
   border: 1px solid var(--login-divider-color);
   margin-bottom: 24px;
 }
 
-.login__divider-text {
+.signup__divider-text {
   font-size: var(--text-preset-4-5-font-size);
   font-weight: var(--text-preset-5-6-font-weight);
   letter-spacing: var(--text-preset-4-5-6-letter-spacing);
@@ -230,7 +230,7 @@ body {
   margin-bottom: 16px;
 }
 
-.login__google-btn {
+.signup__google-btn {
   height: 41px;
   padding: var(--spacing-150) var(--spacing-200);
   border-radius: var(--radius-8);
@@ -245,22 +245,22 @@ body {
   margin-bottom: 16px;
 }
 
-.login__google-btn--border {
+.signup__google-btn--border {
   height: 44px;
   width: 444px;
   background-color: transparent;
   border: 1px solid var(--login-text-input-border-color);
 }
 
-.login__google-btn__icon {
+.signup__google-btn__icon {
   width: 20px;
   height: 20px;
   fill: currentColor;
 }
-.login__google-btn--border:hover {
+.signup__google-btn--border:hover {
   background-color: var(--login-text-input-color-hover);
 }
-.login__google-btn--border:focus-visible {
+.signup__google-btn--border:focus-visible {
   outline: none;
   color: var(--neutral-950);
   border: 1px solid var(--neutral-950);
@@ -268,23 +268,23 @@ body {
     0px 0px 0px 2px var(--neutral-0),
     0px 0px 0px 4px var(--neutral-400);
 }
-.login__google-btn--border:disabled {
+.signup__google-btn--border:disabled {
   color: var(--neutral-300);
   background-color: var(--neutral-50);
   border: none;
 }
-.login__text-signup {
+.signup__text-login {
   font-size: var(--text-preset-4-5-font-size);
   letter-spacing: var(--text-preset-4-5-6-letter-spacing);
   font-weight: var(--text-preset-5-6-font-weight);
   color: var(--login-text-color);
   text-align: center;
 }
-.login__text-signup a {
+.signup__text-login a {
   color: var(--login-title-color);
   text-decoration: none;
 }
-.login__text-signup a:hover,
-.login__text-signup a:focus {
+.signup__text-login a:hover,
+.signup__text-login a:focus {
   color: var(--blue-500);
 }
