@@ -8,7 +8,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
+      href="../assets/images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="../css/login.css" />
     <link rel="stylesheet" href="../css/theme.css" />
@@ -71,13 +71,15 @@
                   type="email"
                   class="login__text-box-input"
                   placeholder="email@example.com"
+                  name="email"
                 />
               </div>
 
-              <p class="login__text-box-info">
-                <!-- Show the error -->
+              <p class="login__text-box-info" data-error-for="email">
+                <!-- Show the error  -->
 
-                <!-- <svg
+                 <svg
+                 class = "login__text-box-info-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height="16"
@@ -92,7 +94,7 @@
                     d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0ZM12.006 15.693v-4.3M12 8.355v-.063"
                   />
                 </svg>
-                This is a hint text to help user. -->
+                This is a hint text to help user.
               </p>
             </div>
 
@@ -104,7 +106,7 @@
                 class="login__text-box-label"
                 >Password</label
               >
-              <a href="#" class="login__text-box-link">Forgot</a>
+              <a href="forgot-password.html" class="login__text-box-link">Forgot</a>
             </div>
             <div class="login__text-box-body">
               <div class="login__text-box-body-input">
@@ -112,6 +114,7 @@
                   id="login__text-box-input-password"
                   type="password"
                   class="login__text-box-input"
+                  name="password"
                 />
                 <svg
                   class="login__text-box-show-icon2"
@@ -133,10 +136,11 @@
                 </svg>
               </div>
 
-              <p class="login__text-box-info">
-                <!-- Show the error -->
+              <p class="login__text-box-info" data-error-for="password">
+               <!-- Show the error  -->
 
-                <!-- <svg
+                <svg
+                 class = "login__text-box-info-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height="16"
@@ -151,7 +155,7 @@
                     d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0ZM12.006 15.693v-4.3M12 8.355v-.063"
                   />
                 </svg>
-                This is a hint text to help user. -->
+                This is a hint text to help user.
               </p>
             </div>
           </div>
@@ -183,9 +187,12 @@
             <hr class="login__styled-line" />
           </div>
 
-          <p class = "login__text-signup">No account yet? <a href="#">Sign Up</a></p>
+          <p class="login__text-signup">
+            No account yet? <a href="signup.html">Sign Up</a>
+          </p>
         </form>
       </section>
     </main>
+    <script type="module" src="../js/main.js"></script>
   </body>
 </html>

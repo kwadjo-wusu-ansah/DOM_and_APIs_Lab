@@ -64,6 +64,7 @@
   --page-header-text-muted: var(--neutral-500);
   --page-header-bg-secondary: var(--neutral-0);
   --page-header-text-primary: var(--neutral-950);
+  --page-header-title-muted: var(--neutral-600);
   --page-header-border-default: var(--neutral-300);
   --page-header-icon-default: var(--neutral-500);
   --page-header-divider-default: var(--neutral-200);
@@ -71,9 +72,10 @@
   --sidebar-bg-default: var(--neutral-0);
   --sidebar-icon-primary: var(--neutral-950);
   --sidebar-bg-active: var(--neutral-100);
-  --sidebar-icon-default: var(--neutral-600);
+  --sidebar-icon-default: var(--neutral-700);
   --sidebar-icon-secondary: var(--neutral-700);
   --sidebar-text-primary: var(--neutral-950);
+  --sidebar-text-default: var(--neutral-700);
   --sidebar-text-muted: var(--neutral-500);
   --sidebar-bg-secondary: var(--neutral-200);
   --sidebar-divider-muted: var(--neutral-200);
@@ -104,6 +106,21 @@
   --note-content-text-muted: var(--neutral-700);
   --note-content-icon-default: var(--neutral-700);
   --note-content-divider-default: var(--neutral-200);
+
+  /* Settings Page */
+  --settings-menu-text: var(--neutral-700);
+  --settings-menu-icon: var(--neutral-700);
+  --settings-panel-subtitle: var(--neutral-700);
+  --settings-option-description: var(--neutral-700);
+  --settings-field-link: var(--neutral-600);
+  --settings-option-border: var(--neutral-200);
+  --settings-option-border-active: var(--neutral-200);
+  --settings-option-bg-active: var(--neutral-100);
+  --settings-option-icon-bg: var(--neutral-0);
+  --settings-option-icon-border: var(--neutral-200);
+  --settings-option-radio-border: var(--neutral-200);
+  --settings-option-radio-dot: var(--neutral-0);
+  --settings-sidebar-text: var(--neutral-700);
 }
 
 :root[data-theme="dark"] {
@@ -163,9 +180,10 @@
   --universal-background-color: var(--neutral-950);
 
   --page-header-bg-default: var(--neutral-950);
-  --page-header-text-muted: var(--neutral-500);
+  --page-header-text-muted: var(--neutral-400);
   --page-header-bg-secondary: var(--neutral-950);
   --page-header-text-primary: var(--neutral-400);
+  --page-header-title-muted: var(--note-content-text-muted);
   --page-header-border-default: var(--neutral-600);
   --page-header-icon-default: var(--neutral-500);
   --page-header-divider-default: var(--neutral-800);
@@ -176,6 +194,7 @@
   --sidebar-icon-default: var(--neutral-200);
   --sidebar-icon-secondary: var(--neutral-200);
   --sidebar-text-primary: var(--neutral-0);
+  --sidebar-text-default: var(--sidebar-text-primary);
   --sidebar-text-muted: var(--neutral-500);
   --sidebar-bg-secondary: var(--neutral-700);
   --sidebar-divider-muted: var(--neutral-900);
@@ -206,5 +225,20 @@
   --note-content-text-muted: var(--neutral-300);
   --note-content-icon-default: var(--neutral-200);
   --note-content-divider-default: var(--neutral-800);
+
+  /* Settings Page */
+  --settings-menu-text: var(--neutral-200);
+  --settings-menu-icon: var(--neutral-200);
+  --settings-panel-subtitle: var(--neutral-300);
+  --settings-option-description: var(--neutral-300);
+  --settings-field-link: var(--neutral-600);
+  --settings-option-border: var(--neutral-800);
+  --settings-option-border-active: var(--neutral-700);
+  --settings-option-bg-active: var(--neutral-800);
+  --settings-option-icon-bg: var(--neutral-950);
+  --settings-option-icon-border: var(--neutral-700);
+  --settings-option-radio-border: var(--neutral-600);
+  --settings-option-radio-dot: var(--neutral-800);
+  --settings-sidebar-text: var(--neutral-200);
 
 }

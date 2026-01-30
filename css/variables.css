@@ -12,7 +12,8 @@
 
   src:
     local("Noto-Serif"),
-    url("../assets/fonts/noto/Noto-VariableFont_wght.ttf") format("truetype");
+    url("../assets/fonts/noto-serif/NotoSerif-VariableFont_wdth\,wght.ttf")
+      format("truetype");
 }
 
 @font-face {

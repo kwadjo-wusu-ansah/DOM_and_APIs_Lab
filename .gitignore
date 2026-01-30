@@ -38,3 +38,7 @@ npm-debug.log*
 *.pem
 .DS_Store
 Thumbs.db
+
+# AI
+
+AGENT.md
