@@ -1,3 +1,5 @@
+
+/*this function normalizes theme selection input*/
 export const normalizeThemeSelection = (themeName) => {
   const normalized = String(themeName ?? "").trim().toLowerCase();
   if (!normalized) return "";
@@ -7,7 +9,7 @@ export const normalizeThemeSelection = (themeName) => {
     return "system";
   return normalized;
 };
-
+/*this function normalizes font selection input*/
 export const normalizeFontSelection = (fontName) => {
   const normalized = String(fontName ?? "").trim().toLowerCase();
   if (!normalized) return "";
@@ -17,6 +19,7 @@ export const normalizeFontSelection = (fontName) => {
   return normalized;
 };
 
+/*this function applies theme to the document root (html)*/
 export const applyTheme = (themeName) => {
   const root = document.documentElement;
   const selection = normalizeThemeSelection(themeName);
@@ -31,6 +34,7 @@ export const applyTheme = (themeName) => {
   localStorage.setItem("theme", selection || "dark");
 };
 
+/*this function applies font to the document root (html)*/
 export const applyFont = (fontName) => {
   const root = document.documentElement;
   const resolved = normalizeFontSelection(fontName) || "sans";

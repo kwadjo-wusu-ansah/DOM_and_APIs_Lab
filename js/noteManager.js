@@ -1,9 +1,6 @@
-// noteManager.js
 import { formatDate, generateNoteId } from "./utils.js";
 
-console.log(formatDate());
-
-// Normalize incoming notes (from data.json or older saved formats) into one format
+/* This function normalize incoming notes (from data.json or older saved formats) into one format*/
 export const normalizeNote = (raw) => {
   const title = raw?.title ?? "";
   const content = raw?.content ?? "";
@@ -22,7 +19,9 @@ export const normalizeNote = (raw) => {
     tags,
     archived,
     created: raw?.created ?? formatDate(),
-    lastEdited: lastEditedRaw ? formatDate(new Date(lastEditedRaw)) : formatDate(),
+    lastEdited: lastEditedRaw
+      ? formatDate(new Date(lastEditedRaw))
+      : formatDate(),
   };
 };
 
@@ -33,7 +32,9 @@ export class Note {
     this.#id = generateNoteId();
     this.title = title?.trim() ?? "";
     this.content = content ?? "";
-    this.tags = Array.isArray(tags) ? tags.map((t) => String(t).trim()).filter(Boolean): [];
+    this.tags = Array.isArray(tags)
+      ? tags.map((t) => String(t).trim()).filter(Boolean)
+      : [];
     this.archived = Boolean(archived);
     this.created = formatDate();
     this.lastEdited = formatDate();
@@ -104,58 +105,65 @@ export const createNote = (title, content, tags = []) => {
 };
 
 export const deleteNote = (notes, id) => {
-  return notes.filter((n) => n.id !== id);
+
+  return notes.filter((note) => note.id !== id);
 };
 
 export const updateNote = (notes, id, updates) => {
-  const updated = notes.map((n) => {
-    if (n.id !== id) return n;
-    const merged = { ...n, ...updates };
-    // keep lastEdited updated
+  const updated = notes.map((note) => {
+    if (note.id !== id) return note;
+
+    const merged = { ...note, ...updates };
+
     merged.lastEdited = formatDate();
+
     return merged;
   });
+
   return updated;
 };
 
 export const toggleArchive = (notes, id) => {
-  return notes.map((n) => {
-    if (n.id !== id) return n;
-    return { ...n, archived: !n.archived, lastEdited: formatDate() };
+
+  return notes.map((note) => {
+
+    if (note.id !== id) return note;
+
+    return { ...note, archived: !note.archived, lastEdited: formatDate() };
   });
 };
 
 export const searchNotes = (notes, query) => {
-  const q = String(query ?? "")
+  const queryString = String(query ?? "")
     .trim()
     .toLowerCase();
-  if (!q) return notes;
+  if (!queryString) return notes;
 
-  return notes.filter((n) => {
-    const inTitle = (n.title ?? "").toLowerCase().includes(q);
-    const inContent = (n.content ?? "").toLowerCase().includes(q);
-    const inTags = Array.isArray(n.tags)
-      ? n.tags.join(" ").toLowerCase().includes(q)
+  return notes.filter((note) => {
+    const inTitle = (note.title ?? "").toLowerCase().includes(queryString);
+    const inContent = (note.content ?? "").toLowerCase().includes(queryString);
+    const inTags = Array.isArray(note.tags)
+      ? note.tags.join(" ").toLowerCase().includes(queryString)
       : false;
     return inTitle || inContent || inTags;
   });
 };
 
 export const filterByTag = (notes, tag) => {
-  const t = String(tag ?? "")
+  const tagString = String(tag ?? "")
     .trim()
     .toLowerCase();
-  if (!t) return notes;
+  if (!tagString) return notes;
 
-  return notes.filter((n) =>
-    Array.isArray(n.tags)
-      ? n.tags.some((x) => String(x).toLowerCase() === t)
+  return notes.filter((note) =>
+    Array.isArray(note.tags)
+      ? note.tags.some((x) => String(x).toLowerCase() === tagString)
       : false,
   );
 };
 
 export const getAllTags = (notes) => {
   const set = new Set();
-  notes.forEach((n) => (n.tags ?? []).forEach((t) => set.add(String(t))));
+  notes.forEach((note) => (note.tags ?? []).forEach((t) => set.add(String(t))));
   return Array.from(set).sort((a, b) => a.localeCompare(b));
 };

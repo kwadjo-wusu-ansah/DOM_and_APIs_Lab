@@ -13,7 +13,7 @@ import {
   isSearchRoute,
   isTagRoute,
   normalizeSearchQuery,
-  openConfirmModal,
+
   pages,
   renderCreatePlaceholderNote,
   renderEmptyStateNote,
@@ -26,8 +26,7 @@ import {
   toastDefinitions,
 } from "./utils.js";
 
-export { getDocument, openConfirmModal };
-
+/*this function shows a toast notification */
 export const showToast = (type, options = {}) => {
   const definition = toastDefinitions[type] || {};
   const message = options.message || definition.message || String(type);
@@ -47,17 +46,20 @@ export const showToast = (type, options = {}) => {
   });
 
   let timeoutId = null;
+
   const dismiss = () => {
     if (!toast.isConnected) return;
     toast.classList.remove("is-visible");
     toast.classList.add("is-exiting");
     if (timeoutId) window.clearTimeout(timeoutId);
+
     const removeToast = () => {
       if (toast.isConnected) toast.remove();
     };
     toast.addEventListener("transitionend", removeToast, { once: true });
     window.setTimeout(removeToast, 220);
   };
+
 
   if (duration > 0) {
     timeoutId = window.setTimeout(dismiss, duration);
@@ -81,7 +83,7 @@ export const showToast = (type, options = {}) => {
   return toast;
 };
 
-// ---------- Notes Rendering ----------
+/*this function renders a single note in the sidebar navigation */
 export const renderNote = (note, { isActive = false } = {}) => {
   const navDiv = getDocument("class", "sidebar-all-notes__nav")?.[0];
   if (!navDiv) {
@@ -121,7 +123,7 @@ export const renderNote = (note, { isActive = false } = {}) => {
   navDiv.insertAdjacentHTML("beforeend", noteTemplate);
 };
 
-
+/*this function renders all notes in the sidebar navigation */
 export const renderAllNotes = (
   notes,
   {
@@ -161,11 +163,11 @@ export const renderAllNotes = (
   }
 };
 
-// navigationHighlight.js
 
+//this function sets active navigation item based on route
 export function setActiveNavByRoute(route) {
   const resolvedRoute = route === "create-note" ? "all-notes" : route;
-  const items = document.querySelectorAll(".sidebar-navigation__item");
+  const items = getDocument("queryAll", ".sidebar-navigation__item");
 
   items.forEach((li) => {
     const link = li.querySelector("[data-route]");
@@ -175,11 +177,11 @@ export function setActiveNavByRoute(route) {
   });
 }
 
-// ---------- Validation ----------
+// this function shows validation error for a form field
 export const showValidationError = (field, message) => {
   // Basic pattern: assume you have an error element like:
   // <p class="form-error" data-field="title"></p>
-  const el = document.querySelector(`[data-error-for="${field}"]`);
+  const el = getDocument("query", `[data-error-for="${field}"]`);
 
   if (!el) return;
 
@@ -188,13 +190,9 @@ export const showValidationError = (field, message) => {
   el.classList.toggle("is-visible", Boolean(message));
 };
 
-// ---------- Tag Sidebar (Filter list) ----------
+// this function updates the tag list in the sidebar
 export const updateTagList = (tags) => {
-  // IMPORTANT: this should be a dedicated container for tag filters,
-  // not the per-note tags container.
-  // Example container you should have in HTML:
-  // <div class="tags-sidebar__list"></div>
-  const tagListEl = document.querySelector(".sidebar-navigation__tags-list");
+  const tagListEl = getDocument("query", ".sidebar-navigation__tags-list");
   if (!tagListEl) {
     // If you haven't made this container yet, we avoid crashing.
     console.warn(
@@ -225,65 +223,16 @@ export const updateTagList = (tags) => {
     .join("");
 };
 
-// ---------- Settings Page ----------
-export const initSettingsPanels = (defaultPanelId = "color-theme") => {
-  const panels = Array.from(
-    document.querySelectorAll("[data-settings-panel]"),
-  );
-  const links = Array.from(
-    document.querySelectorAll("[data-settings-link]"),
-  );
-  if (!panels.length || !links.length) return false;
 
-  const panelIds = new Set(panels.map((panel) => panel.id).filter(Boolean));
-  const headerTitle = document.querySelector(".settings-header__title");
-  const baseHeaderTitle = headerTitle?.textContent?.trim() || "Settings";
 
-  const setActivePanel = (panelId) => {
-    const resolved = panelIds.has(panelId) ? panelId : defaultPanelId;
-
-    panels.forEach((panel) => {
-      const isActive = panel.id === resolved;
-      panel.hidden = !isActive;
-      panel.setAttribute("aria-hidden", isActive ? "false" : "true");
-    });
-
-    links.forEach((link) => {
-      const targetId = link.getAttribute("href")?.replace("#", "");
-      const item = link.closest(".settings-menu__item");
-      if (item) item.classList.toggle("is-active", targetId === resolved);
-    });
-
-    if (headerTitle) {
-      headerTitle.textContent = baseHeaderTitle;
-    }
-    return resolved;
-  };
-  setActivePanel(defaultPanelId);
-
-  document.addEventListener("click", (event) => {
-    const link = event.target.closest("[data-settings-link]");
-    if (!link) return;
-
-    event.preventDefault();
-    const targetId = link.getAttribute("href")?.replace("#", "");
-    if (!targetId) return;
-    setActivePanel(targetId);
-  });
-
-  return true;
-};
-
-// ---------- Archive View ----------
-//this has to be worked on more
+// this function toggles archived notes view
 export const toggleArchiveView = (notes) => {
   const archivedNotes = notes.filter((note) => note.archived);
   renderAllNotes(archivedNotes);
 };
 
 
-
-
+// this function renders the page based on the current route
 export const renderPage = (pageKey, state) => {
   const resolvedKey = resolvePageKey(pageKey);
   const page = pages[resolvedKey] || pages["all-notes"];
@@ -309,7 +258,7 @@ export const renderPage = (pageKey, state) => {
     : resolveActiveNoteId(notesForRoute, state);
   if (!isCreateMode && state) state.activeNoteId = nextActiveId;
 
-  const container = document.querySelector(".note-content");
+  const container = getDocument("query", ".note-content");
   if (!container) {
     console.error("Note content container not found: .note-content");
     return;
@@ -342,7 +291,12 @@ export const renderPage = (pageKey, state) => {
 
   updateTagList(getAllTags(state?.notes || []));
   setActiveNavByRoute(resolvedKey);
-  setSearchInputValue(isSearchMode ? searchQuery : "");
+  const pageSearchInput = getDocument("query", ".page-header__search");
+  if (!isSearchMode) {
+    setSearchInputValue("");
+  } else if (document.activeElement !== pageSearchInput) {
+    setSearchInputValue(searchQuery);
+  }
   const activeNote = !isCreateMode ? getActiveNote(state, notesForRoute) : null;
   const rightMenuMode = isCreateMode
     ? "create"
@@ -383,6 +337,7 @@ export const renderPage = (pageKey, state) => {
   buildAllNotesContent(container, activeNote);
 };
 
+// this function navigates to a different page/route
 export const navigateTo = (pageKey, state, options = {}) => {
   const nextPage = resolvePageKey(pageKey);
   if (state) state.currentPage = nextPage;
@@ -395,51 +350,3 @@ export const navigateTo = (pageKey, state, options = {}) => {
   renderPage(nextPage, state);
 };
 
-export const initSpa = (state) => {
-  document.addEventListener("click", (event) => {
-    const routeEl = event.target.closest("[data-route]");
-    if (!routeEl) return;
-
-    event.preventDefault();
-    const pageKey = routeEl.getAttribute("data-route");
-    if (!pageKey) return;
-
-    navigateTo(pageKey, state);
-  });
-
-  const notesNav = document.querySelector(".sidebar-all-notes__nav");
-  if (notesNav) {
-    notesNav.addEventListener("click", (event) => {
-      const noteItem = event.target.closest("[data-note-id]");
-      if (!noteItem) return;
-
-      event.preventDefault();
-      const noteId = noteItem.getAttribute("data-note-id");
-      if (!noteId) return;
-
-      const targetPage =
-        state?.currentPage === "archived-notes" ||
-        isTagRoute(state?.currentPage) ||
-        isSearchRoute(state?.currentPage)
-          ? state.currentPage
-          : "all-notes";
-
-      navigateTo(targetPage, state, { noteId });
-    });
-  }
-
-  const searchInput = document.querySelector(".page-header__search");
-  if (searchInput) {
-    searchInput.addEventListener("input", (event) => {
-      const value = event.target.value ?? "";
-      const normalized = normalizeSearchQuery(value);
-      if (!normalized) {
-        navigateTo("all-notes", state);
-        return;
-      }
-      navigateTo("search", state, { query: normalized });
-    });
-  }
-
-  renderPage(state?.currentPage || "all-notes", state);
-};

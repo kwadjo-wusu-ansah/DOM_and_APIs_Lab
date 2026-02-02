@@ -6,22 +6,18 @@ import {
   toggleArchive,
   updateNote,
 } from "./noteManager.js";
-import {
-  initSpa,
-  initSettingsPanels,
-  navigateTo,
-  openConfirmModal,
-  renderAllNotes,
-  renderPage,
-  showToast,
-} from "./ui.js";
+import { navigateTo, renderAllNotes, renderPage, showToast } from "./ui.js";
 import {
   diffTags,
+  getDocument,
   getCheckedValue,
   getFormValues,
   hasNoteChanges,
   normalizeTags,
   setCheckedValue,
+  openConfirmModal,
+  isTagRoute,
+  isSearchRoute,
 } from "./utils.js";
 import {
   applyFont,
@@ -30,6 +26,102 @@ import {
   normalizeThemeSelection,
 } from "./theme.js";
 
+/* this function intializes setting panels behavior */
+const initSettingsPanels = (defaultPanelId = "color-theme") => {
+  const panels = Array.from(getDocument("queryAll", "[data-settings-panel]"));
+  const links = Array.from(getDocument("queryAll", "[data-settings-link]"));
+  if (!panels.length || !links.length) return false;
+
+  const panelIds = new Set(panels.map((panel) => panel.id).filter(Boolean));
+  const headerTitle = getDocument("query", ".settings-header__title");
+  const baseHeaderTitle = headerTitle?.textContent?.trim() || "Settings";
+
+  const setActivePanel = (panelId) => {
+    const resolved = panelIds.has(panelId) ? panelId : defaultPanelId;
+
+    panels.forEach((panel) => {
+      const isActive = panel.id === resolved;
+      panel.hidden = !isActive;
+      panel.setAttribute("aria-hidden", isActive ? "false" : "true");
+    });
+
+    links.forEach((link) => {
+      const targetId = link.getAttribute("href")?.replace("#", "");
+      const item = link.closest(".settings-menu__item");
+      if (item) item.classList.toggle("is-active", targetId === resolved);
+    });
+
+    if (headerTitle) {
+      headerTitle.textContent = baseHeaderTitle;
+    }
+    return resolved;
+  };
+  setActivePanel(defaultPanelId);
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("[data-settings-link]");
+    if (!link) return;
+
+    event.preventDefault();
+    const targetId = link.getAttribute("href")?.replace("#", "");
+    if (!targetId) return;
+    setActivePanel(targetId);
+  });
+
+  return true;
+};
+
+// this function initializes single page application behavior
+const initSpa = (state) => {
+  document.addEventListener("click", (event) => {
+    const routeEl = event.target.closest("[data-route]");
+    if (!routeEl) return;
+
+    event.preventDefault();
+    const pageKey = routeEl.getAttribute("data-route");
+    if (!pageKey) return;
+
+    navigateTo(pageKey, state);
+  });
+
+  const notesNav = getDocument("query", ".sidebar-all-notes__nav");
+  if (notesNav) {
+    notesNav.addEventListener("click", (event) => {
+      const noteItem = event.target.closest("[data-note-id]");
+      if (!noteItem) return;
+
+      event.preventDefault();
+      const noteId = noteItem.getAttribute("data-note-id");
+      if (!noteId) return;
+
+      const targetPage =
+        state?.currentPage === "archived-notes" ||
+        isTagRoute(state?.currentPage) ||
+        isSearchRoute(state?.currentPage)
+          ? state.currentPage
+          : "all-notes";
+
+      navigateTo(targetPage, state, { noteId });
+    });
+  }
+
+  const searchInput = getDocument("query", ".page-header__search");
+  if (searchInput) {
+    searchInput.addEventListener("input", (event) => {
+      const value = event.target.value ?? "";
+      const normalized = normalizeSearchQuery(value);
+      if (!normalized) {
+        navigateTo("all-notes", state);
+        return;
+      }
+      navigateTo("search", state, { query: normalized });
+    });
+  }
+
+  renderPage(state?.currentPage || "all-notes", state);
+};
+
+// this function initializes the settings page
 const initSettingsPage = (prefs) => {
   initSettingsPanels();
   const themeValue = normalizeThemeSelection(prefs.theme);
@@ -43,14 +135,17 @@ const initSettingsPage = (prefs) => {
     const options = groupEl.querySelectorAll("[data-option]");
     options.forEach((option) => {
       const input = option.querySelector('input[type="radio"]');
-      option.classList.toggle("is-selected", Boolean(input && checked === input));
+      option.classList.toggle(
+        "is-selected",
+        Boolean(input && checked === input),
+      );
     });
   };
 
   const syncAllOptionGroups = () => {
-    document
-      .querySelectorAll("[data-option-group]")
-      .forEach((group) => syncOptionGroup(group));
+    getDocument("queryAll", "[data-option-group]").forEach((group) =>
+      syncOptionGroup(group),
+    );
   };
 
   syncAllOptionGroups();
@@ -87,16 +182,17 @@ const initSettingsPage = (prefs) => {
   });
 };
 
+// this is the main initialization function
 const init = async () => {
   const prefs = storage.loadPreferences();
   applyTheme(prefs.theme);
   applyFont(prefs.font);
 
-  if (document.querySelector(".settings-page")) {
+  if (getDocument("query", ".settings-page")) {
     initSettingsPage(prefs);
     return;
   }
-  if (!document.querySelector(".layout")) {
+  if (!getDocument("query", ".layout")) {
     return;
   }
 
@@ -121,7 +217,9 @@ const init = async () => {
 
   document.addEventListener("click", (event) => {
     const saveButton = event.target.closest(".buttons-section__btn--primary");
-    const cancelButton = event.target.closest(".buttons-section__btn--secondary");
+    const cancelButton = event.target.closest(
+      ".buttons-section__btn--secondary",
+    );
 
     if (!saveButton && !cancelButton) return;
 
@@ -131,7 +229,8 @@ const init = async () => {
       const values = getFormValues();
 
       if (state.currentPage === "create-note") {
-        if (!values.title && !values.content && values.tags.length === 0) return;
+        if (!values.title && !values.content && values.tags.length === 0)
+          return;
 
         const newNote = createNote(values.title, values.content, values.tags);
         state.notes = [newNote, ...state.notes];
@@ -153,7 +252,9 @@ const init = async () => {
       }
 
       if (state.currentPage === "all-notes" || state.currentPage === "search") {
-        const activeNote = state.notes.find((note) => note.id === state.activeNoteId);
+        const activeNote = state.notes.find(
+          (note) => note.id === state.activeNoteId,
+        );
         if (!activeNote) return;
 
         if (!hasNoteChanges(activeNote, values)) {
@@ -201,7 +302,9 @@ const init = async () => {
     event.preventDefault();
 
     const action = actionEl.dataset.action;
-    const activeNote = state.notes.find((note) => note.id === state.activeNoteId);
+    const activeNote = state.notes.find(
+      (note) => note.id === state.activeNoteId,
+    );
     if (!activeNote) return;
 
     if (action === "archive") {

@@ -43,13 +43,14 @@ export function parseTags(raw) {
   return cleanRaw;
 }
 
-/**/
+/*this fucntion gets the value of an input element by selector */
 export function getInputValue(selector) {
   const element = document.querySelector(selector);
   if (!element || !("value" in element)) return "";
   return element.value;
 }
 
+/*this function gets form values form note content*/
 export function getFormValues() {
   const title = getInputValue("[data-note-title]").trim();
   const content = getInputValue("[data-note-content]");
@@ -57,6 +58,7 @@ export function getFormValues() {
   return { title, content, tags };
 }
 
+/*This function generates a unique key for a set of tags */
 export function tagsKey(tags) {
   return (Array.isArray(tags) ? tags : [])
     .map((tag) => String(tag).trim())
@@ -64,6 +66,7 @@ export function tagsKey(tags) {
     .join("|");
 }
 
+/*this function checks if the note has changed compared to the next values */
 export function hasNoteChanges(note, nextValues) {
   if (!note) return false;
 
@@ -74,6 +77,7 @@ export function hasNoteChanges(note, nextValues) {
   return tagsKey(note.tags) !== tagsKey(nextValues.tags);
 }
 
+/*this funtion normalizes an array of tags */
 export function normalizeTags(tags) {
   //if not array => make it an array
   let tagsArray = Array.isArray(tags) ? tags : [];
@@ -87,6 +91,7 @@ export function normalizeTags(tags) {
   return tagsArray;
 }
 
+/*This function diffs two sets of tags and returns added and removed tags */
 export function diffTags(prevTags, nextTags) {
   const prevTagsNormalized = normalizeTags(prevTags);
   const nextTagsNormalized = normalizeTags(nextTags);
@@ -103,6 +108,7 @@ export function diffTags(prevTags, nextTags) {
   return { added, removed };
 }
 
+/*this function gets a document element by selector and name */
 export const getDocument = (selector, name) => {
   if (selector === "id") return document.getElementById(name);
   if (selector === "class") return document.getElementsByClassName(name);
@@ -138,8 +144,8 @@ export const toastDefinitions = {
   "settings-updated": {
     message: "Settings updated successfully!",
   },
-  "password-changed": { 
-    message: "Password changed successfully!" 
+  "password-changed": {
+    message: "Password changed successfully!",
   },
   "tag-added": {
     message: "Tag added successfully!",
@@ -184,6 +190,7 @@ export const toastCloseSvg = `
   </svg>
 `;
 
+/*this function makes sure there’s a place on the page where toasts will live */
 export const getToastContainer = () => {
   let container = document.querySelector("[data-toast-container]");
   if (container) return container;
@@ -197,6 +204,7 @@ export const getToastContainer = () => {
   return container;
 };
 
+/*this function builds the actual toast item*/
 export const createToastElement = ({ message, action } = {}) => {
   const toast = document.createElement("div");
   toast.className = "toast";
@@ -236,9 +244,11 @@ export const createToastElement = ({ message, action } = {}) => {
   return toast;
 };
 
+/*for access in both closeConfirmModal and openConfirmModal*/
 let modalResolve = null;
 let modalCleanup = null;
 
+/*this function returns Modal (Delete or Archive modal popup)*/
 export const getModalElements = () => {
   const overlay = document.querySelector("[data-modal-overlay]");
   if (!overlay) return null;
@@ -308,6 +318,7 @@ export const openConfirmModal = ({
   nodes.overlay.addEventListener("click", onOverlayClick);
   window.addEventListener("keydown", onKeyDown);
 
+  /*this function removes the event listeners */
   modalCleanup = () => {
     nodes.cancelButton?.removeEventListener("click", onCancel);
     nodes.confirmButton?.removeEventListener("click", onConfirm);
@@ -433,10 +444,17 @@ export const chevronSvg = `
   </svg>
 `;
 
-export const isTagRoute = (route) =>
-  typeof route === "string" && route.startsWith("tag-");
-export const isSearchRoute = (route) => route === "search";
+/*this function reutrn if the route is a tag route */
+export const isTagRoute = (route) => {
+  return typeof route === "string" && route.startsWith("tag-");
+};
 
+/*this function return if this is a search route */
+export const isSearchRoute = (route) => {
+  return route === "search";
+};
+
+/*this function returns the tag from a tag route */
 export const getTagFromRoute = (route) => {
   if (!isTagRoute(route)) return "";
   try {
@@ -446,6 +464,7 @@ export const getTagFromRoute = (route) => {
   }
 };
 
+/*this function filters notes by a specific tag */
 export const filterNotesByTag = (notes, tag) => {
   const t = String(tag ?? "")
     .trim()
@@ -459,8 +478,12 @@ export const filterNotesByTag = (notes, tag) => {
   );
 };
 
-export const normalizeSearchQuery = (query) => String(query ?? "").trim();
+/* this function normalizes a search query */
+export const normalizeSearchQuery = (query) => {
+  return String(query ?? "").trim();
+};
 
+/*this function sets the value of the search input */
 export const setSearchInputValue = (value) => {
   const input = document.querySelector(".page-header__search");
   if (!input) return;
@@ -541,6 +564,7 @@ export const createButtonsSection = () => {
   return section;
 };
 
+/*this function returns the sidebar info element */
 export const getSidebarInfoElement = () => {
   const sidebar = document.querySelector(".sidebar-all-notes");
   if (!sidebar) return null;
@@ -560,6 +584,7 @@ export const getSidebarInfoElement = () => {
   return info;
 };
 
+/*this function sets the sidebar all-notes info element for (archived, tag , search)*/
 export const setSidebarInfo = ({ mode, tag, query } = {}) => {
   const info = getSidebarInfoElement();
   if (!info) return;
@@ -681,7 +706,7 @@ export const deleteActionMarkup = `
     </a>
   </li>
 `;
-
+/*this function renders the right side menu based on the mode ) (create, empty, archived state)*/
 export const renderRightMenu = (mode = "default") => {
   const nav = document.querySelector(".sidebar-right-menu__nav");
   if (!nav) return;
@@ -704,6 +729,7 @@ export const renderRightMenu = (mode = "default") => {
   nav.innerHTML = `${archiveActionMarkup}${deleteActionMarkup}`;
 };
 
+/*this function render the create placeholder note in the sidebar */
 export const renderCreatePlaceholderNote = (
   title = "Untitled Note",
   { navDiv } = {},
@@ -727,7 +753,8 @@ export const renderCreatePlaceholderNote = (
   container.insertAdjacentHTML("beforeend", noteTemplate);
 };
 
-export const renderEmptyStateNote = (variant, { navDiv } = {}) => {
+/*this function renders an empty state note in the sidebar */
+export const renderEmptyStateNote = (mode, { navDiv } = {}) => {
   const container =
     navDiv || getDocument("class", "sidebar-all-notes__nav")?.[0];
   if (!container) {
@@ -735,7 +762,7 @@ export const renderEmptyStateNote = (variant, { navDiv } = {}) => {
     return;
   }
 
-  if (variant === "search") {
+  if (mode === "search") {
     const markup = `
       <li class="sidebar-all-notes__empty-card sidebar-all-notes__empty-card--search">
         <p class="sidebar-all-notes__empty-text">
@@ -748,7 +775,7 @@ export const renderEmptyStateNote = (variant, { navDiv } = {}) => {
     return;
   }
 
-  if (variant === "archived") {
+  if (mode === "archived") {
     const markup = `
       <li class="sidebar-all-notes__empty-card sidebar-all-notes__empty-card--archived">
         <p class="sidebar-all-notes__empty-text">
@@ -772,6 +799,7 @@ export const renderEmptyStateNote = (variant, { navDiv } = {}) => {
   container.insertAdjacentHTML("beforeend", markup);
 };
 
+/*this function build note content (With the note information) */
 export const buildAllNotesContent = (container, note) => {
   const tags = Array.isArray(note?.tags) ? note.tags.filter(Boolean) : [];
 
@@ -800,6 +828,7 @@ export const buildAllNotesContent = (container, note) => {
   container.appendChild(createButtonsSection());
 };
 
+/*this function builds the content for a new note  (Create Note) Empty Note*/
 export const buildCreateNoteContent = (container) => {
   // 1) Render template
   container.innerHTML = noteContentTemplate({ isCreateMode: true });
@@ -824,6 +853,7 @@ export const buildCreateNoteContent = (container) => {
   container.appendChild(createButtonsSection());
 };
 
+/*this function picks which note should be treated as the “currently active” note.*/
 export const getActiveNote = (state, notesOverride = null) => {
   const notes = Array.isArray(notesOverride)
     ? notesOverride
@@ -846,10 +876,12 @@ export const pages = {
   "create-note": { title: "All Notes", mode: "create" },
   search: { title: "Search", mode: "search" },
 };
+/*this function resolves the page key based on the current route*/
+export const resolvePageKey = (pageKey) => {
+  return pages[pageKey] || isTagRoute(pageKey) ? pageKey : "all-notes";
+};
 
-export const resolvePageKey = (pageKey) =>
-  pages[pageKey] || isTagRoute(pageKey) ? pageKey : "all-notes";
-
+/*this function sets the header title based on the current route*/
 export const setHeaderTitle = ({
   title = "",
   mutedPrefix = "",
@@ -874,6 +906,8 @@ export const setHeaderTitle = ({
   headerTitle.textContent = title || "";
 };
 
+
+/*this function gets notes for a specific route */
 export const getNotesForRoute = (state, route, { query, searchFn } = {}) => {
   const notes = Array.isArray(state?.notes) ? state.notes : [];
   if (route === "archived-notes") {
@@ -890,7 +924,7 @@ export const getNotesForRoute = (state, route, { query, searchFn } = {}) => {
   }
   return notes;
 };
-
+/*this function resolves the active note ID based on the notes and state*/
 export const resolveActiveNoteId = (notes, state) => {
   if (!notes.length) return null;
   const current = state?.activeNoteId;
@@ -898,11 +932,13 @@ export const resolveActiveNoteId = (notes, state) => {
   return notes[0].id;
 };
 
+/*this function gets the checked value of a radio button group*/
 export const getCheckedValue = (name) => {
   const input = document.querySelector(`input[name="${name}"]:checked`);
   return input?.value ?? null;
 };
 
+/*this function sets the checked value of a radio button group*/
 export const setCheckedValue = (name, value) => {
   if (!value) return;
   const input = document.querySelector(

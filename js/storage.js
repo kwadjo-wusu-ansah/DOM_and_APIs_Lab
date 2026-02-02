@@ -8,7 +8,9 @@ import {
   safeParse,
 } from "./utils.js";
 
-// ---------- Notes ----------
+
+
+/*this function saves notes to localStorage */
 export const saveNotes = (notes) => {
   try {
     const json = JSON.stringify(Array.isArray(notes) ? notes : []);
@@ -30,6 +32,7 @@ export const saveNotes = (notes) => {
   }
 };
 
+/*this function loads notes from localStorage */
 export const loadNotes = () => {
   const raw = localStorage.getItem(STORAGE_KEY);
   if (!raw) return [];
@@ -37,26 +40,30 @@ export const loadNotes = () => {
   return Array.isArray(parsed) ? parsed : [];
 };
 
-/**
- * Seed notes from data.json ONLY ONCE.
- * Use this in main.js after fetching/importing your data.json.
- * - Won't overwrite existing user notes
- */
+// this function seeds notes from data.json only once
 export const seedNotesOnce = (dataJson) => {
   try {
+
     const alreadySeeded = localStorage.getItem(SEEDED_KEY) === "true";
+
     if (alreadySeeded) return { ok: true, seeded: false };
 
-    // If user already has notes, don't overwrite them
+  
     const existing = loadNotes();
+
     if (existing.length > 0) {
+
       localStorage.setItem(SEEDED_KEY, "true");
+
       return { ok: true, seeded: false };
     }
 
     const seed = Array.isArray(dataJson?.notes) ? dataJson.notes : [];
+
     const result = saveNotes(seed);
+
     if (!result.ok) return { ok: false, error: result.error };
+
 
     localStorage.setItem(SEEDED_KEY, "true");
     return { ok: true, seeded: true };
@@ -66,7 +73,7 @@ export const seedNotesOnce = (dataJson) => {
   }
 };
 
-// ---------- Preferences ----------
+/*this function saves preferences to localStorage */
 export const savePreferences = (prefs) => {
   try {
     localStorage.setItem(PREFS_KEY, JSON.stringify(prefs ?? {}));
@@ -77,6 +84,7 @@ export const savePreferences = (prefs) => {
   }
 };
 
+/*this function loads preferences from localStorage */
 export const loadPreferences = () => {
   const raw = localStorage.getItem(PREFS_KEY);
   if (!raw) return DEFAULT_PREFS;
@@ -85,7 +93,7 @@ export const loadPreferences = () => {
   return { ...DEFAULT_PREFS, ...saved };
 };
 
-// ---------- Draft (sessionStorage per lab spec) ----------
+/*this function saves draft to session storage*/
 export const saveDraft = (draft) => {
   try {
     sessionStorage.setItem(DRAFT_KEY, JSON.stringify(draft ?? {}));
@@ -94,12 +102,15 @@ export const saveDraft = (draft) => {
   }
 };
 
+/*this function loads draft from session storage*/
 export const loadDraft = () => {
   const raw = sessionStorage.getItem(DRAFT_KEY);
   if (!raw) return null;
   return safeParse(raw, null);
 };
 
+
+/*this function clears draft from session storage*/
 export const clearDraft = () => {
   try {
     sessionStorage.removeItem(DRAFT_KEY);
